@@ -285,6 +285,7 @@ sub __read_response {
     return $self->__read_sock($result);
   }
   elsif ($type eq '*') {
+    return if $result < 0;
     my @list;
     while ($result--) {
       push @list, scalar($self->__read_response($command));
